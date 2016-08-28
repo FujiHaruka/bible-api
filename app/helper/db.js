@@ -7,7 +7,8 @@ let sequelize = new Sequelize('bible', 'root', 'root', {
     max: 5,
     min: 0,
     idle: 10000
-  }
+  },
+  logging: () => {/* Do nothing now*/}
 })
 
 let BibleModel = sequelize.define('bibletext', {
