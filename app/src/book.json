@@ -1,0 +1,332 @@
+{
+  "gen": {
+    "book": "Gen",
+    "chapter": 50,
+    "jp": "創世記"
+  },
+  "exod": {
+    "book": "Exod",
+    "chapter": 40,
+    "jp": "出エジプト記"
+  },
+  "lev": {
+    "book": "Lev",
+    "chapter": 27,
+    "jp": "レビ記"
+  },
+  "num": {
+    "book": "Num",
+    "chapter": 36,
+    "jp": "民数記"
+  },
+  "deut": {
+    "book": "Deut",
+    "chapter": 34,
+    "jp": "申命記"
+  },
+  "josh": {
+    "book": "Josh",
+    "chapter": 24,
+    "jp": "ヨシュア記"
+  },
+  "judg": {
+    "book": "Judg",
+    "chapter": 21,
+    "jp": "士師記"
+  },
+  "ruth": {
+    "book": "Ruth",
+    "chapter": 4,
+    "jp": "ルツ記"
+  },
+  "1sam": {
+    "book": "1Sam",
+    "chapter": 31,
+    "jp": "サムエル記上"
+  },
+  "2sam": {
+    "book": "2Sam",
+    "chapter": 24,
+    "jp": "サムエル記下"
+  },
+  "1kgs": {
+    "book": "1Kgs",
+    "chapter": 22,
+    "jp": "列王紀上"
+  },
+  "2kgs": {
+    "book": "2Kgs",
+    "chapter": 25,
+    "jp": "列王紀下"
+  },
+  "1chr": {
+    "book": "1Chr",
+    "chapter": 29,
+    "jp": "歴代志上"
+  },
+  "2chr": {
+    "book": "2Chr",
+    "chapter": 36,
+    "jp": "歴代志下"
+  },
+  "ezra": {
+    "book": "Ezra",
+    "chapter": 10,
+    "jp": "エズラ記"
+  },
+  "neh": {
+    "book": "Neh",
+    "chapter": 13,
+    "jp": "ネヘミヤ記"
+  },
+  "esth": {
+    "book": "Esth",
+    "chapter": 10,
+    "jp": "エステル記"
+  },
+  "job": {
+    "book": "Job",
+    "chapter": 42,
+    "jp": "ヨブ記"
+  },
+  "ps": {
+    "book": "Ps",
+    "chapter": 150,
+    "jp": "詩篇"
+  },
+  "prov": {
+    "book": "Prov",
+    "chapter": 31,
+    "jp": "箴言"
+  },
+  "eccl": {
+    "book": "Eccl",
+    "chapter": 12,
+    "jp": "伝道の書"
+  },
+  "song": {
+    "book": "Song",
+    "chapter": 8,
+    "jp": "雅歌"
+  },
+  "isa": {
+    "book": "Isa",
+    "chapter": 66,
+    "jp": "イザヤ書"
+  },
+  "jer": {
+    "book": "Jer",
+    "chapter": 52,
+    "jp": "エレミヤ書"
+  },
+  "lam": {
+    "book": "Lam",
+    "chapter": 5,
+    "jp": "哀歌"
+  },
+  "dan": {
+    "book": "Dan",
+    "chapter": 12,
+    "jp": "ダニエル書"
+  },
+  "ezek": {
+    "book": "Ezek",
+    "chapter": 48,
+    "jp": "エゼキエル書"
+  },
+  "hos": {
+    "book": "Hos",
+    "chapter": 14,
+    "jp": "ホセア書"
+  },
+  "joel": {
+    "book": "Joel",
+    "chapter": 3,
+    "jp": "ヨエル書"
+  },
+  "amos": {
+    "book": "Amos",
+    "chapter": 9,
+    "jp": "アモス書"
+  },
+  "obad": {
+    "book": "Obad",
+    "chapter": 1,
+    "jp": "オバデヤ書"
+  },
+  "jonah": {
+    "book": "Jonah",
+    "chapter": 4,
+    "jp": "ヨナ書"
+  },
+  "mic": {
+    "book": "Mic",
+    "chapter": 7,
+    "jp": "ミカ書"
+  },
+  "nah": {
+    "book": "Nah",
+    "chapter": 3,
+    "jp": "ナホム書"
+  },
+  "hab": {
+    "book": "Hab",
+    "chapter": 3,
+    "jp": "ハバクク書"
+  },
+  "zeph": {
+    "book": "Zeph",
+    "chapter": 14,
+    "jp": "ゼパニヤ書"
+  },
+  "hag": {
+    "book": "Hag",
+    "chapter": 2,
+    "jp": "ハガイ書"
+  },
+  "zech": {
+    "book": "Zech",
+    "chapter": 14,
+    "jp": "ゼカリヤ書"
+  },
+  "mal": {
+    "book": "Mal",
+    "chapter": 4,
+    "jp": "マラキ書"
+  },
+  "matt": {
+    "book": "Matt",
+    "chapter": 28,
+    "jp": "マタイによる福音書"
+  },
+  "mark": {
+    "book": "Mark",
+    "chapter": 16,
+    "jp": "マルコによる福音書"
+  },
+  "luke": {
+    "book": "Luke",
+    "chapter": 24,
+    "jp": "ルカによる福音書"
+  },
+  "john": {
+    "book": "John",
+    "chapter": 21,
+    "jp": "ヨハネによる福音書"
+  },
+  "acts": {
+    "book": "Acts",
+    "chapter": 28,
+    "jp": "使徒行伝"
+  },
+  "rom": {
+    "book": "Rom",
+    "chapter": 16,
+    "jp": "ローマ人への手紙"
+  },
+  "1cor": {
+    "book": "1Cor",
+    "chapter": 16,
+    "jp": "コリント人への第一の手紙"
+  },
+  "2cor": {
+    "book": "2Cor",
+    "chapter": 13,
+    "jp": "コリント人への第二の手紙"
+  },
+  "gal": {
+    "book": "Gal",
+    "chapter": 6,
+    "jp": "ガラテヤ人への手紙"
+  },
+  "eph": {
+    "book": "Eph",
+    "chapter": 6,
+    "jp": "エペソ人への手紙"
+  },
+  "phil": {
+    "book": "Phil",
+    "chapter": 4,
+    "jp": "ピリピ人への手紙"
+  },
+  "col": {
+    "book": "Col",
+    "chapter": 4,
+    "jp": "コロサイ人への手紙"
+  },
+  "1thess": {
+    "book": "1Thess",
+    "chapter": 5,
+    "jp": "テサロニケ人への第一の手紙"
+  },
+  "2thess": {
+    "book": "2Thess",
+    "chapter": 3,
+    "jp": "テサロニケ人への第二の手紙"
+  },
+  "1tim": {
+    "book": "1Tim",
+    "chapter": 6,
+    "jp": "テモテヘの第一の手紙"
+  },
+  "2tim": {
+    "book": "2Tim",
+    "chapter": 4,
+    "jp": "テモテヘの第二の手紙"
+  },
+  "titus": {
+    "book": "Titus",
+    "chapter": 3,
+    "jp": "テトスヘの手紙"
+  },
+  "phlm": {
+    "book": "Phlm",
+    "chapter": 1,
+    "jp": "ピレモンヘの手紙"
+  },
+  "heb": {
+    "book": "Heb",
+    "chapter": 13,
+    "jp": "ヘブル人への手紙"
+  },
+  "jas": {
+    "book": "Jas",
+    "chapter": 5,
+    "jp": "ヤコブの手紙"
+  },
+  "1pet": {
+    "book": "1Pet",
+    "chapter": 5,
+    "jp": "ペテロの第一の手紙"
+  },
+  "2pet": {
+    "book": "2Pet",
+    "chapter": 3,
+    "jp": "ペテロの第二の手紙"
+  },
+  "1john": {
+    "book": "1John",
+    "chapter": 5,
+    "jp": "ヨハネの第一の手紙"
+  },
+  "2john": {
+    "book": "2John",
+    "chapter": 1,
+    "jp": "ヨハネの第二の手紙"
+  },
+  "3john": {
+    "book": "3John",
+    "chapter": 1,
+    "jp": "ヨハネの第三の手紙"
+  },
+  "jude": {
+    "book": "Jude",
+    "chapter": 1,
+    "jp": "ユダの手紙"
+  },
+  "rev": {
+    "book": "Rev",
+    "chapter": 22,
+    "jp": "ヨハネの黙示録"
+  }
+}
