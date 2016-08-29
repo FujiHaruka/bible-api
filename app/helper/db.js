@@ -1,6 +1,10 @@
 const Sequelize = require('sequelize')
+const {
+  MYSQL_DATABASE,
+  MYSQL_ROOT_PASSWORD
+} = require('../../env')
 
-let sequelize = new Sequelize('bible', 'root', 'root', {
+let sequelize = new Sequelize(MYSQL_DATABASE, 'root', MYSQL_ROOT_PASSWORD, {
   host: 'localhost',
   dialect: 'mysql',
   pool: {
@@ -11,12 +15,12 @@ let sequelize = new Sequelize('bible', 'root', 'root', {
   logging: () => {/* Do nothing now*/}
 })
 
-let BibleModel = sequelize.define('bibletext', {
-  Verse: {
+let BibleModel = sequelize.define('collo_bible', {
+  key: {
     type: Sequelize.STRING,
     primaryKey: true
   },
-  Scripture: {
+  text: {
     type: Sequelize.STRING
   }
 }, {
