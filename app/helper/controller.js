@@ -1,5 +1,6 @@
 const { validateBook } = require('./validete')
 const { BibleModel } = require('./db')
+const bookInfo = require('../src/book')
 
 module.exports.fetchOne = function * fetchOne (book, chapter, verse) {
   book = book.toLowerCase()
@@ -19,7 +20,11 @@ module.exports.fetchOne = function * fetchOne (book, chapter, verse) {
   if (!one) {
     return
   }
-  this.body = one.Scripture
+  this.body = {
+    key,
+    text: one.Scripture,
+    book: bookInfo[book].jp
+  }
 }
 
 module.exports.fetchRange = function * fetchRange (book, chapter, fromVerse, toVerse) {

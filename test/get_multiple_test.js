@@ -4,7 +4,7 @@ const co = require('co')
 const assert = require('assert')
 
 describe('app.js', function () {
-  this.timeout(2000)
+  this.timeout(3000)
 
   it('GET 500 verses', () => co(function * () {
     for (let chapter = 1; chapter <= 50; chapter++) {
