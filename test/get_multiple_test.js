@@ -10,7 +10,7 @@ describe('app.js', function () {
     for (let chapter = 1; chapter <= 50; chapter++) {
       for (let verse = 1; verse <= 10; verse++) {
         let req = request(app.listen())
-        let got = yield req.get(`/gen/${chapter}/${verse}`)
+        let got = yield req.get(`/api/gen/${chapter}/${verse}`)
         assert.equal(200, got.status)
       }
     }
