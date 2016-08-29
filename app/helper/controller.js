@@ -42,6 +42,37 @@ module.exports.fetchRange = function * fetchRange (book, fromChapter, fromVerse,
     return
   }
   // Find
+  // 章のデータを丸ごととってくる
+  let chapterData = []
+  for (let chap = fromChapter; chap <= toChapter; chap++) {
+    let pattern = `${book}.${chap}.%`
+    let verseList = yield BibleModel.findAll({
+      where: {
+        Verse: {
+          $like: pattern
+        }
+      }
+    })
+    verseList = verseList
+      .map(data => ({
+        key: data.Verse,
+        text: data.Scripture,
+        verse: parseInt(data.Verse.split('.')[2], 10)
+      }))
+      .sort((dataA, dataB) => dataA.verse - dataB.verse)
+    chapterData.push(verseList)
+  }
+  // 頭と尻尾を整形して結合
+  let body
+  if (fromChapter === toChapter) {
+    body = chapterData[0].slice(fromVerse - 1, toVerse)
+  } else {
+    chapterData[0] = chapterData[0].slice(fromVerse - 1)
+    let last = chapterData.length - 1
+    chapterData[last] = chapterData[last].slice(0, toVerse)
+    body = chapterData.reduce((concat, data) => concat.concat(data), [])
+  }
+  this.body = body
 }
 
 function isIntStr (str) {
