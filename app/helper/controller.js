@@ -3,14 +3,16 @@ const { BibleModel } = require('./db')
 const bookInfo = require('../src/book')
 
 module.exports.fetchOne = function * fetchOne (book, chapter, verse) {
+  // Validation
   book = book.toLowerCase()
   let valid = this.method === 'GET' &&
               validateBook(book) &&
-              chapter === '' + parseInt(chapter, 10) &&
-              verse === '' + parseInt(verse, 10)
+              isIntStr(chapter) &&
+              isIntStr(verse)
   if (!valid) {
     return
   }
+  // Find
   let key = [book, chapter, verse].join('.')
   let one = yield BibleModel.findOne({
     where: {
@@ -27,6 +29,21 @@ module.exports.fetchOne = function * fetchOne (book, chapter, verse) {
   }
 }
 
-module.exports.fetchRange = function * fetchRange (book, chapter, fromVerse, toVerse) {
-  // TODO 実装
+module.exports.fetchRange = function * fetchRange (book, fromChapter, fromVerse, toChapter, toVerse) {
+  // Validation
+  book = book.toLowerCase()
+  let valid = this.method === 'GET' &&
+              validateBook(book) &&
+              isIntStr(fromChapter) &&
+              isIntStr(fromVerse) &&
+              isIntStr(toChapter) &&
+              isIntStr(toVerse)
+  if (!valid) {
+    return
+  }
+  // Find
+}
+
+function isIntStr (str) {
+  return str === '' + parseInt(str, 10)
 }
