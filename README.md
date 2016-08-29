@@ -141,9 +141,16 @@ URL の :book 一覧。
 | ユダの手紙 | jude |
 | ヨハネの黙示録 | rev |
 
-### ビルド
+### ローカルでビルド
 
-MySQL の Docker コンテナ準備。
+`git clone` してから MySQL の Docker コンテナを用意して `npm start` する。
+
+#### 0. 前提
+
++ Node.js >= 6
++ docker コマンドを使えること
+
+#### 1. MySQL の Docker コンテナ準備。
 
 ```
 $ ./ci/build-db.js
@@ -162,7 +169,9 @@ $ docker logs bible-api-db
 MySQL init process done. Ready for start up.
 ```
 
-アプリの起動
+Docker コンテナの終了などは普通に `docker stop bible-api-db`, `docker rm bible-api-db` など適当に。
+
+#### 2. アプリの起動
 
 ```
 $ npm start
