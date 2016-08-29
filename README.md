@@ -4,12 +4,12 @@
 
 #### 一つの聖句を取得するには
 
-パス：　GET で `/api/:book/:chapter/:verse`
+パス：　GET で `/:book/:chapter/:verse`
 
 例：
 
 ```sh
-$ curl http://localhost:3000/api/gen/1/1
+$ curl http://localhost:3000/gen/1/1
 {
   "key": "gen.1.1",
   "text": "はじめに神は天と地とを創造された。",
@@ -23,12 +23,12 @@ $ curl http://localhost:3000/api/gen/1/1
 
 同じ書内であればa章b節からx章y節までといった取得ができる。
 
-パス：　GET で `/api/:book/from/:fromChapter/:fromVerse/to/:toChapter/:toVerse`
+パス：　GET で `/:book/from/:fromChapter/:fromVerse/to/:toChapter/:toVerse`
 
 例：
 
 ```sh
-$ curl http://localhost:3000/api/gen/from/1/29/to/2/2
+$ curl http://localhost:3000/gen/from/1/29/to/2/2
 [
   {
     "key": "Gen.1.29",
@@ -187,4 +187,4 @@ $ npm test
 $ npm start
 ```
 
-ブラウザから `http://localhost:3000/api/gen/1/1` を開いて創世記1章1節の JSON が表示されれば勝ち。
+ブラウザから `http://localhost:3000/gen/1/1` を開いて創世記1章1節の JSON が表示されれば勝ち。

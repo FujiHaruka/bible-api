@@ -5,9 +5,9 @@ const assert = require('assert')
 describe('app.js', function () {
   this.timeout(2000)
 
-  it('GET /api/gen/1/1', (done) => {
+  it('GET /gen/1/1', (done) => {
     request(app.listen())
-      .get('/api/gen/1/1')
+      .get('/gen/1/1')
       .expect('Content-Type', /json/)
       .expect(200)
       .expect((res) => {
