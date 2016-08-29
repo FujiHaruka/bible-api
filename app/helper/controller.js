@@ -25,7 +25,9 @@ module.exports.fetchOne = function * fetchOne (book, chapter, verse) {
   this.body = {
     key,
     text: one.Scripture,
-    book: bookInfo[book].jp
+    book: bookInfo[book].jp,
+    chapter: parseInt(chapter, 10),
+    verse: parseInt(verse, 10)
   }
 }
 
@@ -44,6 +46,8 @@ module.exports.fetchRange = function * fetchRange (book, fromChapter, fromVerse,
   // Find
   // 章のデータを丸ごととってくる
   let chapterData = []
+  fromChapter = parseInt(fromChapter, 10)
+  toChapter = parseInt(toChapter, 10)
   for (let chap = fromChapter; chap <= toChapter; chap++) {
     let pattern = `${book}.${chap}.%`
     let verseList = yield BibleModel.findAll({
@@ -57,6 +61,8 @@ module.exports.fetchRange = function * fetchRange (book, fromChapter, fromVerse,
       .map(data => ({
         key: data.Verse,
         text: data.Scripture,
+        book: bookInfo[book].jp,
+        chapter: chap,
         verse: parseInt(data.Verse.split('.')[2], 10)
       }))
       .sort((dataA, dataB) => dataA.verse - dataB.verse)

@@ -12,6 +12,7 @@ describe('app.js', function () {
       .expect(200)
       .expect((res) => {
         assert.equal(res.body.length, 3)
+        console.log(res.body[0])
       })
       .end(done)
   })
