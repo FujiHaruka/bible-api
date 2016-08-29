@@ -4,7 +4,7 @@
 
 #### 一つの聖句を取得するには
 
-パス：　`/api/:book/:chapter/:verse`
+パス：　GET で `/api/:book/:chapter/:verse`
 
 例：
 
@@ -23,7 +23,7 @@ $ curl http://localhost:3000/api/gen/1/1
 
 同じ書内であればa章b節からx章y節までといった取得ができる。
 
-パス：　`/api/:book/from/:fromChapter/:fromVerse/to/:toChapter/:toVerse`
+パス：　GET で `/api/:book/from/:fromChapter/:fromVerse/to/:toChapter/:toVerse`
 
 例：
 
@@ -67,3 +67,76 @@ $ curl http://localhost:3000/api/gen/from/1/29/to/2/2
   }
 ]
 ```
+
+### 書名一覧
+
+URL の :book 一覧。
+
+| 書名 | 記号 |
+|-----|-----|
+| 創世記 | gen |
+| 出エジプト記 | exod |
+| レビ記 | lev |
+| 民数記 | num |
+| 申命記 | deut |
+| ヨシュア記 | josh |
+| 士師記 | judg |
+| ルツ記 | ruth |
+| サムエル記上 | 1sam |
+| サムエル記下 | 2sam |
+| 列王紀上 | 1kgs |
+| 列王紀下 | 2kgs |
+| 歴代志上 | 1chr |
+| 歴代志下 | 2chr |
+| エズラ記 | ezra |
+| ネヘミヤ記 | neh |
+| エステル記 | esth |
+| ヨブ記 | job |
+| 詩篇 | ps |
+| 箴言 | prov |
+| 伝道の書 | eccl |
+| 雅歌 | song |
+| イザヤ書 | isa |
+| エレミヤ書 | jer |
+| 哀歌 | lam |
+| ダニエル書 | dan |
+| エゼキエル書 | ezek |
+| ホセア書 | hos |
+| ヨエル書 | joel |
+| アモス書 | amos |
+| オバデヤ書 | obad |
+| ヨナ書 | jonah |
+| ミカ書 | mic |
+| ナホム書 | nah |
+| ハバクク書 | hab |
+| ゼパニヤ書 | zeph |
+| ハガイ書 | hag |
+| ゼカリヤ書 | zech |
+| マラキ書 | mal |
+| マタイによる福音書 | matt |
+| マルコによる福音書 | mark |
+| ルカによる福音書 | luke |
+| ヨハネによる福音書 | john |
+| 使徒行伝 | acts |
+| ローマ人への手紙 | rom |
+| コリント人への第一の手紙 | 1cor |
+| コリント人への第二の手紙 | 2cor |
+| ガラテヤ人への手紙 | gal |
+| エペソ人への手紙 | eph |
+| ピリピ人への手紙 | phil |
+| コロサイ人への手紙 | col |
+| テサロニケ人への第一の手紙 | 1thess |
+| テサロニケ人への第二の手紙 | 2thess |
+| テモテヘの第一の手紙 | 1tim |
+| テモテヘの第二の手紙 | 2tim |
+| テトスヘの手紙 | titus |
+| ピレモンヘの手紙 | phlm |
+| ヘブル人への手紙 | heb |
+| ヤコブの手紙 | jas |
+| ペテロの第一の手紙 | 1pet |
+| ペテロの第二の手紙 | 2pet |
+| ヨハネの第一の手紙 | 1john |
+| ヨハネの第二の手紙 | 2john |
+| ヨハネの第三の手紙 | 3john |
+| ユダの手紙 | jude |
+| ヨハネの黙示録 | rev |
