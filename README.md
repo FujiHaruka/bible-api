@@ -140,3 +140,30 @@ URL の :book 一覧。
 | ヨハネの第三の手紙 | 3john |
 | ユダの手紙 | jude |
 | ヨハネの黙示録 | rev |
+
+### ビルド
+
+MySQL の Docker コンテナ準備。
+
+```
+$ ./ci/build-db.js
+...(略)...
+Successfully built 9cbbc1b4880f
+
+$ ./ci/run-db.js
+...(略)...
+333c404ec801d7638c4b2d60aa1d6567ef8b2e51a76f1902ebd61b398f751a5c
+
+# run-db.sh が成功するとバックグラウンドで数十秒間 MySQL の初期化処理が行われる
+# ログを見るには
+$ docker logs bible-api-db
+...(略)...
+# 以下が表示されていれば初期化完了
+MySQL init process done. Ready for start up.
+```
+
+アプリの起動
+
+```
+$ npm start
+```
