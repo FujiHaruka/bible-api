@@ -152,6 +152,8 @@ URL の :book 一覧。
 
 #### 1. MySQL の Docker コンテナ準備。
 
+最初に env/index.js の MYSQL_ROOT_PASSWORD を適当に変えておく。Docker のイメージをビルドしてコンテナを走らせるには、以下を実行すれば良い。
+
 ```
 $ ./ci/build-db.js
 ...(略)...
@@ -171,8 +173,18 @@ MySQL init process done. Ready for start up.
 
 Docker コンテナの終了などは普通に `docker stop bible-api-db`, `docker rm bible-api-db` など適当に。
 
-#### 2. アプリの起動
+#### 2. テストを走らせる
+
+```
+$ npm test
+```
+
+テストが通ることを確認してください。
+
+### 3. アプリの起動
 
 ```
 $ npm start
 ```
+
+ブラウザから `http://localhost:3000/api/gen/1/1` を開いて創世記1章1節の JSON が表示されれば勝ち。
