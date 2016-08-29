@@ -1,5 +1,7 @@
 # bible-api
 
+口語訳聖書（パブリックドメイン）の REST API。
+
 ### API Reference
 
 #### 一つの聖句を取得するには
