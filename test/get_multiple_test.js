@@ -2,6 +2,7 @@ const app = require('../app/app')
 const request = require('supertest')
 const co = require('co')
 const assert = require('assert')
+const { URL_PREFIX } = require('../env')
 
 describe('app.js', function () {
   this.timeout(3000)
@@ -10,7 +11,7 @@ describe('app.js', function () {
     for (let chapter = 1; chapter <= 50; chapter++) {
       for (let verse = 1; verse <= 10; verse++) {
         let req = request(app.listen())
-        let got = yield req.get(`/gen/${chapter}/${verse}`)
+        let got = yield req.get(`${URL_PREFIX}/gen/${chapter}/${verse}`)
         assert.equal(200, got.status)
       }
     }

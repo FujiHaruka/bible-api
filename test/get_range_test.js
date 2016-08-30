@@ -1,13 +1,14 @@
 const app = require('../app/app')
 const request = require('supertest')
 const assert = require('assert')
+const { URL_PREFIX } = require('../env')
 
 describe('app.js', function () {
   this.timeout(2000)
 
   it('GET /gen/from/1/10/to/1/12', (done) => {
     request(app.listen())
-      .get('/gen/from/1/10/to/1/12')
+      .get(URL_PREFIX + '/gen/from/1/10/to/1/12')
       .expect('Content-Type', /json/)
       .expect(200)
       .expect((res) => {
@@ -18,7 +19,7 @@ describe('app.js', function () {
 
   it('GET /gen/from/1/10/to/3/5', (done) => {
     request(app.listen())
-      .get('/gen/from/1/10/to/3/5')
+      .get(URL_PREFIX + '/gen/from/1/10/to/3/5')
       .expect('Content-Type', /json/)
       .expect(200)
       .expect((res) => {
