@@ -4,5 +4,6 @@ module.exports = {
   DB_IMAGE_NAME: 'bible-api-db',
   DB_CONTAINER_NAME: 'bible-api-db',
   DB_PORT: 3306,
+  APP_PORT: 3000,
   URL_PREFIX: '' // for example '/api'
 }
