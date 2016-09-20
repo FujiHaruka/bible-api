@@ -81,6 +81,7 @@ module.exports.fetchMultiple = function * fetchMultiple (next) {
         resp.push(res)
       }
     } catch (e) {
+      console.log(e)
       continue
     }
   }
@@ -93,6 +94,7 @@ function isIntStr (str) {
 
 function * findRange ({book, fromChapter, fromVerse, toChapter, toVerse}) {
   // 章のデータを丸ごととってくる
+  book = book.toLowerCase()
   let chapterData = []
   fromChapter = parseInt(fromChapter, 10)
   toChapter = parseInt(toChapter, 10)
