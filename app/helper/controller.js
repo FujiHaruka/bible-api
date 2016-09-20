@@ -2,7 +2,8 @@ const { validateBook } = require('./validete')
 const { BibleModel } = require('./db')
 const bookInfo = require('../src/book')
 
-module.exports.fetchOne = function * fetchOne (book, chapter, verse) {
+module.exports.fetchOne = function * fetchOne (next) {
+  let {book, chapter, verse} = this.params
   // Validation
   book = book.toLowerCase()
   let valid = this.method === 'GET' &&
@@ -10,7 +11,7 @@ module.exports.fetchOne = function * fetchOne (book, chapter, verse) {
               isIntStr(chapter) &&
               isIntStr(verse)
   if (!valid) {
-    return
+    yield next
   }
   // Find
   let key = [book, chapter, verse].join('.')
@@ -18,18 +19,20 @@ module.exports.fetchOne = function * fetchOne (book, chapter, verse) {
     where: { key }
   })
   if (!one) {
-    return
+    yield next
   }
-  this.body = {
+  this.body = JSON.stringify({
     key: one.key,
     text: one.text,
     book: bookInfo[book].jp,
     chapter: parseInt(chapter, 10),
     verse: parseInt(verse, 10)
-  }
+  })
+  yield next
 }
 
-module.exports.fetchRange = function * fetchRange (book, fromChapter, fromVerse, toChapter, toVerse) {
+module.exports.fetchRange = function * fetchRange (next) {
+  let {book, fromChapter, fromVerse, toChapter, toVerse} = this.params
   // Validation
   book = book.toLowerCase()
   let valid = this.method === 'GET' &&
@@ -39,9 +42,56 @@ module.exports.fetchRange = function * fetchRange (book, fromChapter, fromVerse,
               isIntStr(toChapter) &&
               isIntStr(toVerse)
   if (!valid) {
-    return
+    yield next
   }
-  // Find
+  let resp = yield findRange({book, fromChapter, fromVerse, toChapter, toVerse})
+  this.body = JSON.stringify(resp)
+  yield next
+}
+
+module.exports.fetchMultiple = function * fetchMultiple (next) {
+  let reqList = this.request.body
+  if (Object.keys(reqList).length === 0) {
+    yield next
+  }
+  let resp = []
+  for (let req of reqList) {
+    // エラーが出てもとりあえず次に行く心の強さ
+    try {
+      if (req.single) {
+        let {book, chapter, verse} = req
+        book = book.toLowerCase()
+        let key = [book, chapter, verse].join('.')
+        let one = yield BibleModel.findOne({
+          where: { key }
+        })
+        if (!one) {
+          continue
+        }
+        book = book.toLowerCase()
+        resp.push({
+          key: one.key,
+          text: one.text,
+          book: bookInfo[book].jp,
+          chapter: parseInt(chapter, 10),
+          verse: parseInt(verse, 10)
+        })
+      } else {
+        let res = yield findRange(req)
+        resp.push(res)
+      }
+    } catch (e) {
+      continue
+    }
+  }
+  this.body = JSON.stringify(resp)
+}
+
+function isIntStr (str) {
+  return str === '' + parseInt(str, 10)
+}
+
+function * findRange ({book, fromChapter, fromVerse, toChapter, toVerse}) {
   // 章のデータを丸ごととってくる
   let chapterData = []
   fromChapter = parseInt(fromChapter, 10)
@@ -67,18 +117,14 @@ module.exports.fetchRange = function * fetchRange (book, fromChapter, fromVerse,
     chapterData.push(verseList)
   }
   // 頭と尻尾を整形して結合
-  let body
+  let res
   if (fromChapter === toChapter) {
-    body = chapterData[0].slice(fromVerse - 1, toVerse)
+    res = chapterData[0].slice(fromVerse - 1, toVerse)
   } else {
     chapterData[0] = chapterData[0].slice(fromVerse - 1)
     let last = chapterData.length - 1
     chapterData[last] = chapterData[last].slice(0, toVerse)
-    body = chapterData.reduce((concat, data) => concat.concat(data), [])
+    res = chapterData.reduce((concat, data) => concat.concat(data), [])
   }
-  this.body = body
-}
-
-function isIntStr (str) {
-  return str === '' + parseInt(str, 10)
+  return res
 }

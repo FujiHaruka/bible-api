@@ -1,16 +1,20 @@
+const { APP_PORT, URL_PREFIX } = require('../env')
 const koa = require('koa')
 const logger = require('koa-logger')
-const route = require('koa-route')
+const router = require('koa-router')({ prefix: URL_PREFIX })
+const koaBody = require('koa-body')()
 const cors = require('koa-cors')
 const controller = require('./helper/controller')
-const { APP_PORT, URL_PREFIX } = require('../env')
 let app = module.exports = koa()
 
-app.use(cors({
-  origin: '*'
-}))
-app.use(route.get(URL_PREFIX + '/:book/:chapter/:verse', controller.fetchOne))
-app.use(route.get(URL_PREFIX + '/:book/from/:fromChapter/:fromVerse/to/:toChapter/:toVerse', controller.fetchRange))
+router
+  .get('/:book/:chapter/:verse', controller.fetchOne)
+  .get('/:book/from/:fromChapter/:fromVerse/to/:toChapter/:toVerse', controller.fetchRange)
+  .post('/multiple', koaBody, controller.fetchMultiple)
+
+app.use(cors({ origin: '*' }))
+app.use(router.routes())
+app.use(router.allowedMethods())
 
 if (!module.parent) {
   app.use(logger())
