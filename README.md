@@ -70,6 +70,31 @@ $ curl http://localhost:3000/gen/from/1/29/to/2/2
 ]
 ```
 
+#### まとめて取りたい
+
+パス: POST で '/multiple'
+
+body に以下みたいな JSON を渡す。ヘッダーに `content-type: application/json` を入れるのを忘れずに。
+
+```json
+[
+  {
+  	"single": true,
+    "book": "gen",
+    "chapter": 1,
+    "verse": 1
+  },
+  {
+    "single": false,
+    "book": "exod",
+    "fromChapter": 2,
+    "fromVerse": 4,
+    "toChapter": 2,
+    "toVerse": 6
+  }
+]
+```
+
 ### 書名一覧
 
 URL の :book 一覧。
