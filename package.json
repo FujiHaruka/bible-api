@@ -4,7 +4,7 @@
   "description": "Bible REST API for Japanese colloquial translation",
   "scripts": {
     "start": "node app/app.js",
-    "pm2": "pm2 app/app.js --name bible-api",
+    "pm2": "pm2 start app/app.js --name bible-api",
     "test": "mocha"
   },
   "repository": {
