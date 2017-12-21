@@ -1,6 +1,6 @@
 const { validateBook } = require('./validete')
 const { BibleModel } = require('./db')
-const bookInfo = require('../src/book')
+const bookInfo = require('../data/book')
 
 module.exports.fetchOne = function * fetchOne (next) {
   let {book, chapter, verse} = this.params
@@ -12,6 +12,7 @@ module.exports.fetchOne = function * fetchOne (next) {
               isIntStr(verse)
   if (!valid) {
     yield next
+    return
   }
   // Find
   let key = [book, chapter, verse].join('.')
@@ -20,6 +21,8 @@ module.exports.fetchOne = function * fetchOne (next) {
   })
   if (!one) {
     yield next
+    this.body = JSON.stringify({error: 'Not found'})
+    return
   }
   this.body = JSON.stringify({
     key: one.key,
@@ -43,6 +46,7 @@ module.exports.fetchRange = function * fetchRange (next) {
               isIntStr(toVerse)
   if (!valid) {
     yield next
+    return
   }
   let resp = yield findRange({book, fromChapter, fromVerse, toChapter, toVerse})
   this.body = JSON.stringify(resp)
@@ -53,6 +57,7 @@ module.exports.fetchMultiple = function * fetchMultiple (next) {
   let reqList = this.request.body
   if (Object.keys(reqList).length === 0) {
     yield next
+    return
   }
   let resp = []
   for (let req of reqList) {

@@ -1,10 +1,10 @@
-const books = require('../src/book.json')
+const books = require('../data/book.json')
 
 /**
  * 本の名称を validate
  */
 function validateBook (name) {
-  return books[name] !== undefined
+  return Boolean(books[name])
 }
 
 module.exports = {

@@ -4,6 +4,7 @@ const {
   MYSQL_DATABASE,
   MYSQL_ROOT_PASSWORD
 } = require('../../env')
+const debug = require('debug')('bible-api:db')
 
 let sequelize = new Sequelize(MYSQL_DATABASE, 'root', MYSQL_ROOT_PASSWORD, {
   host: 'localhost',
@@ -14,7 +15,7 @@ let sequelize = new Sequelize(MYSQL_DATABASE, 'root', MYSQL_ROOT_PASSWORD, {
     min: 0,
     idle: 10000
   },
-  logging: () => {/* Do nothing now*/}
+  logging: (log) => { debug(log) }
 })
 
 let BibleModel = sequelize.define('collo_bible', {

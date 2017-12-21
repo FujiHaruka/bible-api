@@ -19,4 +19,5 @@ app.use(router.allowedMethods())
 if (!module.parent) {
   app.use(logger())
   app.listen(APP_PORT)
+  console.log(`Server listening on port ${APP_PORT}`)
 }
